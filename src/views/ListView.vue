@@ -36,7 +36,7 @@ const headers = [
   },
   {
     title: null,
-    class: "",
+    class: "basis-10",
   },
 ];
 
