@@ -6,7 +6,7 @@ defineProps({
 
 <template>
   <div class="overflow-hidden border-b">
-    <div class="flex h-16 p-4 border-0 border-b">
+    <div class="hidden md:flex h-16 p-4 border-0 border-b">
       <div
         class="flex items-center"
         :class="item.class ? item.class : 'grow'"
