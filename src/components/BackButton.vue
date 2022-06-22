@@ -10,8 +10,8 @@ defineProps({
 
 <template>
   <div
-    class="rounded-xl cursor-pointer w-fit p-2 px-3 bg-indigo-400 hover:shadow-[0_0px_6px_0px_rgba(0,0,0,0.2)] transition-all"
+    class="rounded-xl cursor-pointer w-12 md:w-14 p-2 px-3 bg-indigo-400 hover:shadow-[0_0px_6px_0px_rgba(0,0,0,0.2)] transition-all"
   >
-    <IconArrowLeft class="w-4 fill-gray-50" />
+    <IconArrowLeft class="w-4 fill-gray-50 mx-auto" />
   </div>
 </template>
