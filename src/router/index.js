@@ -15,6 +15,10 @@ const router = createRouter({
       name: "Detail",
       component: DetailView,
     },
+    {
+      path: "/:pathMatch(.*)*",
+      component: ListView,
+    },
   ],
 });
 

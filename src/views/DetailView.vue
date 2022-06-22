@@ -12,7 +12,11 @@ const route = useRoute();
 const router = useRouter();
 const listStore = useListStore();
 
-onBeforeMount(() => {
+onBeforeMount(async () => {
+  if (!route.params.tokenID) {
+    onClickBack();
+  }
+
   listStore.fetchDetail(route.params.tokenID);
 });
 
@@ -26,11 +30,20 @@ function onClickBack() {
     v-if="listStore.detailLoading"
     class="mx-auto mt-32 w-8 fill-indigo-400 animate-[spin_1s_ease-in-out_infinite]"
   />
-  <div v-else class="flex justify-center">
-    <CardGallery class="mr-4" v-bind="listStore.detail" />
-    <div>
+  <div v-else-if="!listStore.detail">
+    <div class="flex items-center justify-center mt-4">
       <BackButton @click="onClickBack" />
-      <CardDescription class="mt-2" v-bind="listStore.detail" />
+      <div class="w-fit text-lg font-bold ml-2">
+        Oops! we can't find the item you were looking for.
+      </div>
+    </div>
+  </div>
+  <div v-else class="md:flex justify-center">
+    <BackButton class="md:hidden mb-4" @click="onClickBack" />
+    <CardGallery class="md:mr-4" v-bind="listStore.detail" />
+    <div class="pb-6">
+      <BackButton class="hidden md:flex" @click="onClickBack" />
+      <CardDescription class="mt-4 md:mt-2" v-bind="listStore.detail" />
     </div>
   </div>
 </template>
